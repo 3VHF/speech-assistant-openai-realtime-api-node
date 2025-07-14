@@ -265,10 +265,11 @@ fastify.register(async (fastify) => {
     });
 });
 
-fastify.listen({ port: PORT }, (err) => {
+// Start the Fastify server
+fastify.listen({ port: PORT, host: '0.0.0.0' }, (err) => {
     if (err) {
         console.error(err);
-        process.exit(1);
+        process.exit(1);  // Exit if the server fails to start
     }
-    console.log(`Server is listening on port ${PORT}`);
+    console.log(`Server is listening on port ${PORT}`);  // Log the port the server is running on
 });
